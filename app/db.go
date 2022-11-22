@@ -10,7 +10,7 @@ import (
 func NewDB() *sql.DB {
 	var (
 		driverName     = "mysql"
-		dataSourceName = "root:root@tcp(localhost:3306)/belajar_mysql_lagi"
+		dataSourceName = "root:root@tcp(localhost:3306)/belajar_golang_database_migration"
 	)
 	db, err := sql.Open(driverName, dataSourceName)
 	helper.PanicIfError(err)
@@ -22,3 +22,7 @@ func NewDB() *sql.DB {
 
 	return db
 }
+
+// command run database migration
+// migrate -database "mysql://root:root@tcp(localhost:3306)/belajar_golang_database_migration" -path db/migrations up
+// migrate -database "mysql://root:root@tcp(localhost:3306)/belajar_golang_database_migration" -path db/migrations force
